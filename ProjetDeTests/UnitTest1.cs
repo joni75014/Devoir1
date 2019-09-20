@@ -38,10 +38,13 @@ namespace ProjetDeTests
         [TestMethod()]
         public void CalculerMontantRembourseTest()
         {
+
             // Un livre achété 24 euros depuis 15 jours avec un état "Très abimé" en étant non membre
-
+            double montantRembourse1 = Condition.CalculerMontantRembourse(15, "Livres", false, "Très abimé",24);
+            Assert.AreEqual(12, montantRembourse1);
             // Un livre achété 24 euros depuis 15 jours avec un état "Bon" en étant membre
-
+            double montantRembourse2 = Condition.CalculerMontantRembourse(15, "Livres", true, "Bon", 24);
+            Assert.AreEqual(2.4, montantRembourse2);
         }
 
         [TestMethod()]
@@ -49,14 +52,14 @@ namespace ProjetDeTests
         {
             // Il est membre
             double membre1 = Condition.CalculerReductionMembre(true);
-            Assert.AreEqual(0.80, membre1);
+            Assert.AreEqual(0, membre1);
 
 
 
 
             // Il n'est pas membre
             double membre2 = Condition.CalculerReductionMembre(false);
-            Assert.AreEqual()
+            Assert.AreEqual(0.2, membre2);
 
         }
 

@@ -42,23 +42,30 @@ namespace ModelObjet
         // Permet de retourner le total remboursé en fonction de tous les critères
         public static double CalculerMontantRembourse(int unNbDeJours, string uneCategorie, bool estMembre, string unEtat, int unPrix)
         {
-            
+            double montantRembourse = 0;
+            if(unNbDeJours == 30)
+            {
+               montantRembourse = CalculerReductionMembre(estMembre) + CalculerMontantMax(uneCategorie)+ CalculerReduction(unEtat);
+               return montantRembourse;
+            }
+            else
+            { 
 
             return 0;
-
+            }
         }
         // Permet de renvoyer la réduction si on est membre ou pas
         public static double CalculerReductionMembre(bool estMembre)
         {
            double reductionMembre = 0;
-            int prix = 0;
+           
             if(estMembre == true)
             {
                 reductionMembre = 0;
             }
             else
             {
-                reductionMembre = 0.2 * prix;
+                reductionMembre = 0.2;
             }
             
             return reductionMembre;
